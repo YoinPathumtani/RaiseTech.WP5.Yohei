@@ -261,22 +261,22 @@ strong {
   left: 28%;
 }
 
-#c-button-hb .close {
+#c-button-hb .is_open {
   background-color: #2498b3;
 }
 
-#c-button-hb .close .top {
+#c-button-hb.top {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   top: 48%;
   background-color: #fff;
 }
 
-#c-button-hb .close .middle {
+#c-button-hb.middle {
   opacity: 0;
 }
 
-#c-button-hb .close .bottom {
+#c-button-hb.bottom {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   top: 48%;

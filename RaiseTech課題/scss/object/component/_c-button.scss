@@ -64,18 +64,18 @@
     top: 65%;
     left: 28%
   }
-  .close {
+  .is_open {
     background-color: $color-A;
   }
-  .close .top {
+  &.top {
     transform: rotate(45deg);
     top: 48%;
     background-color: $color-C;
   }
-  .close .middle {
+  &.middle {
     opacity: 0;
   }
-  .close .bottom {
+  &.bottom {
     transform: rotate(-45deg);
     top: 48%;
     background-color: $color-C;
