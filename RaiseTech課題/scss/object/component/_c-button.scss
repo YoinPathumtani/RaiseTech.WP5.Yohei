@@ -1,0 +1,83 @@
+@charset 'utf-8';
+/* 
+再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う
+*/
+
+.c-button {
+  color: $color-C;
+  background-color: $color-A;
+  &-register {
+    border-radius: 3px;
+    width: 294px;
+    height: 72px;
+    line-height: 72px;
+    color: $color-C;
+    background-color: $color-A;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    @include mq(sp) {
+      width: 231px;
+      height: 45px;
+      font-size: .9rem;
+      line-height: 45px;
+    }
+  }
+}
+
+.c-button-logo {
+  width: 160px;
+  margin: 20px;
+}
+
+/* ハンバーガー */
+#c-button-hb {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  @include mq(pc){
+    display: block;
+  }
+  .square {
+    position: relative;
+    background-color: $color-C;
+    width: 50px;
+    height: 50px;
+  }
+  .bar {
+    position: absolute;
+    height: 1px;
+    width: 45%;
+    background-color: $color-A;
+    transition: ease .3s;
+  }
+  .top {
+    top: 31%;
+    left: 28%;
+  }
+  .middle {
+    top: 48%;
+    left: 28%;
+  }
+  .bottom {
+    top: 65%;
+    left: 28%
+  }
+  .close {
+    background-color: $color-A;
+  }
+  .close .top {
+    transform: rotate(45deg);
+    top: 48%;
+    background-color: $color-C;
+  }
+  .close .middle {
+    opacity: 0;
+  }
+  .close .bottom {
+    transform: rotate(-45deg);
+    top: 48%;
+    background-color: $color-C;
+  }
+}

@@ -1,0 +1,60 @@
+@charset 'utf-8';
+
+.p-mainVisual {
+  height: 650px;
+  background-image: url("../../../img/bg-hero1.png"), url("../../../img/bg-hero2.png"), url("../../../img/bg-hero3.png");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: center, center, top;
+  background-size: auto, auto, cover;
+  background-attachment: scroll, scroll, fixed;
+  text-align: center;
+  padding-top: 78px;
+  @include mq(sp) {
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    height: 168px;
+    padding-top: 168px;
+  }
+
+  &__inr {
+    width: 414px;
+    height: 327px;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 50px 30px;
+    text-align: center;
+    @include mq(sp) {
+      width: 100%;
+      border-radius: 0;
+      padding: 0;
+      height: 168px;
+    }
+    img {
+      margin: 0 auto;
+      width: 280px;
+      @include mq(sp) {
+        display: none;
+      }
+    }
+    p {
+      line-height: 1.7rem;
+      font-size: 1rem;
+      padding: 20px 0;
+      @include mq(sp) {
+        padding: 15px 0 10px;
+        font-size: .85rem;
+      }
+    }
+  }
+
+  &-black {
+    background-color: black;
+    height: 200px;
+    @include mq(sp) {
+      margin-top: 168px;
+      height: 1163px;
+    }
+  }
+}

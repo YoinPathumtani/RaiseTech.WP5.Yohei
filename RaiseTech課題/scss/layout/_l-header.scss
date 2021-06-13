@@ -1,0 +1,37 @@
+@charset 'utf-8';
+/* ヘッダーのスタイルを定義 */
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  @include mq(pc) {
+    height: 49px;
+  }
+  .l-header__logo {
+    display: flex;
+    align-items: center;
+    & > p {
+      font-size: .8rem;
+      font-weight: bold;
+      @include mq(tv) {
+        display: none;
+      }
+    }
+  }
+  .l-header__nav {
+    display: flex;
+    line-height: 71px;
+    height: 71px;
+    @include mq(pc) {
+      display: none;
+    }
+    & > li > ul li{
+      height: 54px;
+    }
+    a {
+      display: block;
+      padding: 0 16px;
+    }
+  }
+}

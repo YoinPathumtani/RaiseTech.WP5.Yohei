@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+.p-nav {
+  background-color: $color-C;
+  & > li {
+    &:hover {
+      background-color: $color-B;
+    &:hover .p-nav__item {
+      display: block;
+    }
+    }
+    
+  }
+  &__item {
+    background-color: $color-B;
+    padding: 0px;
+    display: none;
+    & li:hover {
+      background-color: $color-C;
+      color: $color-A;
+    }
+    li {
+      height: 0;
+      overflow: hidden;
+      transition: .5s;
+      
+    }
+  }
+
+}
