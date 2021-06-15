@@ -1,8 +1,9 @@
 @charset 'utf-8';
 
 .p-nav {
-  background-color: $color-C;
+  background-color: $color-E;
   & > li {
+    position: relative;
     &:hover {
       background-color: $color-B;
     &:hover .p-nav__item {
@@ -12,19 +13,33 @@
     
   }
   &__item {
+    position: absolute;
     background-color: $color-B;
     padding: 0px;
     display: none;
+    a {
+      color: $color-D;
+    }
     & li:hover {
       background-color: $color-C;
-      color: $color-A;
+      a {
+        color: $color-A;
+      }
     }
     li {
       height: 0;
       overflow: hidden;
       transition: .5s;
-      
-    }
+      width: 275px;
+    } 
   }
-
+  & > li:nth-of-type(4) .p-nav__item li {
+    width: 215px;
+  }
+  & > li:nth-of-type(5) .p-nav__item li {
+    width: 215px;
+  }
+  & > li:nth-of-type(6) .p-nav__item li {
+    width: 215px;
+  }
 }
