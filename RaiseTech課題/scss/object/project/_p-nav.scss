@@ -2,6 +2,7 @@
 
 .p-nav {
   background-color: $color-E;
+  display: flex;
   & > li {
     position: relative;
     &:hover {

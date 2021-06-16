@@ -32,52 +32,61 @@
 }
 
 /* ハンバーガー */
-#c-button-hb {
-  display: none;
+$btnWidth: 24px;
+$btnHeight: 2px;
+
+.p-hamburger {
+  width: 45px;
+  height: 45px;
+  background-color: $color-E;
   position: relative;
-  cursor: pointer;
-  @include mq(pc){
+  display: none;
+  border: none;
+  @include mq(pc) {
     display: block;
+    float: right;
   }
-  .square {
-    position: relative;
-    background-color: $color-C;
-    width: 50px;
-    height: 50px;
-  }
-  .bar {
+  &::before, &::after {
+    content: "";
+    width: $btnWidth;
+    height: $btnHeight;
+    background-color: $color-A;
     position: absolute;
-    height: 1px;
-    width: 45%;
+    left: calc(50% - ( #{$btnWidth} / 2));
+    display: block;
+    transition: transform .2s;
+  }
+  &::before {
+    top: 12px;
+  }
+  &::after {
+    top: 32px;
+  }
+  > span {
+    width: $btnWidth;
+    height: $btnHeight;
+    font-size: 0;
     background-color: $color-A;
-    transition: ease .3s;
+    background-size: auto $btnHeight;
+    position: absolute;
+    left: calc(50% - ( #{$btnWidth} / 2));
+    top: 50%;
+    transition: transform .2s;
   }
-  .top {
-    top: 31%;
-    left: 28%;
+  &.is-open {
+    &::before {
+      transform: rotate(45deg);
+      top: 21px;
+    }
+    &::after {
+      transform: rotate(-45deg);
+      top: 21px;
+    }
+    > span {
+      background: none;
+    }
   }
-  .middle {
-    top: 48%;
-    left: 28%;
-  }
-  .bottom {
-    top: 65%;
-    left: 28%
-  }
-  .is_open {
-    background-color: $color-A;
-  }
-  &.top {
-    transform: rotate(45deg);
-    top: 48%;
-    background-color: $color-C;
-  }
-  &.middle {
-    opacity: 0;
-  }
-  &.bottom {
-    transform: rotate(-45deg);
-    top: 48%;
-    background-color: $color-C;
-  }
+}
+body.is-open {
+  position: fixed;
 }

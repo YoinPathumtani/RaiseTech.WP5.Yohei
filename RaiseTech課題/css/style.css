@@ -159,9 +159,6 @@ strong {
 }
 
 #header .l-header__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   line-height: 71px;
   height: 71px;
 }
@@ -218,69 +215,77 @@ strong {
 }
 
 /* ハンバーガー */
-#c-button-hb {
-  display: none;
+.p-hamburger {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
   position: relative;
-  cursor: pointer;
+  display: none;
+  border: none;
 }
 
 @media screen and (max-width: 1200px) {
-  #c-button-hb {
+  .p-hamburger {
     display: block;
+    float: right;
   }
 }
 
-#c-button-hb .square {
-  position: relative;
-  background-color: #e9f8fb;
-  width: 50px;
-  height: 50px;
-}
-
-#c-button-hb .bar {
+.p-hamburger::before, .p-hamburger::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: #2498b3;
   position: absolute;
-  height: 1px;
-  width: 45%;
+  left: calc(50% - ( 24px / 2));
+  display: block;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.p-hamburger::before {
+  top: 12px;
+}
+
+.p-hamburger::after {
+  top: 32px;
+}
+
+.p-hamburger > span {
+  width: 24px;
+  height: 2px;
+  font-size: 0;
   background-color: #2498b3;
-  -webkit-transition: ease .3s;
-  transition: ease .3s;
+  background-size: auto 2px;
+  position: absolute;
+  left: calc(50% - ( 24px / 2));
+  top: 50%;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
 }
 
-#c-button-hb .top {
-  top: 31%;
-  left: 28%;
-}
-
-#c-button-hb .middle {
-  top: 48%;
-  left: 28%;
-}
-
-#c-button-hb .bottom {
-  top: 65%;
-  left: 28%;
-}
-
-#c-button-hb .is_open {
-  background-color: #2498b3;
-}
-
-#c-button-hb.top {
+.p-hamburger.is-open::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  top: 48%;
-  background-color: #e9f8fb;
+  top: 21px;
 }
 
-#c-button-hb.middle {
-  opacity: 0;
-}
-
-#c-button-hb.bottom {
+.p-hamburger.is-open::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: 48%;
-  background-color: #e9f8fb;
+  top: 21px;
+}
+
+.p-hamburger.is-open > span {
+  background: none;
+}
+
+body.is-open {
+  position: fixed;
 }
 
 /* 再利用できるパターンとして、小さな単位のモジュールを定義。
@@ -365,6 +370,9 @@ strong {
 
 .p-nav {
   background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .p-nav > li {
