@@ -19,19 +19,4 @@
       }
     }
   }
-  .l-header__nav {
-    display: flex;
-    line-height: 71px;
-    height: 71px;
-    @include mq(pc) {
-      display: none;
-    }
-    & > li > ul li{
-      height: 54px;
-    }
-    a {
-      display: block;
-      padding: 0 16px;
-    }
-  }
 }

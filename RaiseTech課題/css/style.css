@@ -158,36 +158,13 @@ strong {
   }
 }
 
-#header .l-header__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  line-height: 71px;
-  height: 71px;
-}
-
-@media screen and (max-width: 1200px) {
-  #header .l-header__nav {
-    display: none;
-  }
-}
-
-#header .l-header__nav > li > ul li {
-  height: 54px;
-}
-
-#header .l-header__nav a {
-  display: block;
-  padding: 0 16px;
-}
-
 /* ヘッダーのスタイルを定義 */
 /* 
 再利用できるパターンとして、小さな単位のモジュールを定義。
 ※marginなど余白は定義しない。あくまでパーツとして扱う
 */
 .c-button {
-  color: #fff;
+  color: #e9f8fb;
   background-color: #2498b3;
 }
 
@@ -196,7 +173,7 @@ strong {
   width: 294px;
   height: 72px;
   line-height: 72px;
-  color: #fff;
+  color: #e9f8fb;
   background-color: #2498b3;
   font-size: 1rem;
   font-weight: bold;
@@ -218,69 +195,77 @@ strong {
 }
 
 /* ハンバーガー */
-#c-button-hb {
-  display: none;
+.p-hamburger {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
   position: relative;
-  cursor: pointer;
+  display: none;
+  border: none;
 }
 
 @media screen and (max-width: 1200px) {
-  #c-button-hb {
+  .p-hamburger {
     display: block;
+    float: right;
   }
 }
 
-#c-button-hb .square {
-  position: relative;
-  background-color: #fff;
-  width: 50px;
-  height: 50px;
-}
-
-#c-button-hb .bar {
+.p-hamburger::before, .p-hamburger::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: #2498b3;
   position: absolute;
-  height: 1px;
-  width: 45%;
+  left: calc(50% - ( 24px / 2));
+  display: block;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.p-hamburger::before {
+  top: 12px;
+}
+
+.p-hamburger::after {
+  top: 32px;
+}
+
+.p-hamburger > span {
+  width: 24px;
+  height: 2px;
+  font-size: 0;
   background-color: #2498b3;
-  -webkit-transition: ease .3s;
-  transition: ease .3s;
+  background-size: auto 2px;
+  position: absolute;
+  left: calc(50% - ( 24px / 2));
+  top: 50%;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
 }
 
-#c-button-hb .top {
-  top: 31%;
-  left: 28%;
-}
-
-#c-button-hb .middle {
-  top: 48%;
-  left: 28%;
-}
-
-#c-button-hb .bottom {
-  top: 65%;
-  left: 28%;
-}
-
-#c-button-hb .is_open {
-  background-color: #2498b3;
-}
-
-#c-button-hb.top {
+.p-hamburger.is-open::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  top: 48%;
-  background-color: #fff;
+  top: 21px;
 }
 
-#c-button-hb.middle {
-  opacity: 0;
-}
-
-#c-button-hb.bottom {
+.p-hamburger.is-open::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: 48%;
-  background-color: #fff;
+  top: 21px;
+}
+
+.p-hamburger.is-open > span {
+  background: none;
+}
+
+body.is-open {
+  position: fixed;
 }
 
 /* 再利用できるパターンとして、小さな単位のモジュールを定義。
@@ -324,7 +309,7 @@ strong {
 .p-box-mv__icon {
   width: 230px;
   height: 230px;
-  background-color: #fff;
+  background-color: #e9f8fb;
   border: 6px solid #121212;
   border-radius: 50%;
   margin: 0 auto;
@@ -342,7 +327,7 @@ strong {
 .p-box-mv h2 {
   font-size: 1.5rem;
   padding: .9rem;
-  color: #fff;
+  color: #e9f8fb;
 }
 
 .p-box-mv p {
@@ -352,7 +337,7 @@ strong {
   line-height: 1.5rem;
   margin: 0 auto;
   text-align: left;
-  color: #fff;
+  color: #e9f8fb;
 }
 
 @media screen and (max-width: 767px) {
@@ -364,33 +349,46 @@ strong {
 }
 
 .p-nav {
-  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.p-nav > li:hover {
+.p-nav a {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.p-nav__1st {
+  height: 71px;
+  line-height: 71px;
+  position: relative;
+}
+
+.p-nav__1st:nth-of-type(4) li a, .p-nav__1st:nth-of-type(5) li a, .p-nav__1st:nth-of-type(6) li a {
+  width: 150px;
+}
+
+.p-nav__1st:hover {
   background-color: #d4f1f8;
-}
-
-.p-nav > li:hover:hover .p-nav__item {
-  display: block;
 }
 
 .p-nav__item {
-  background-color: #d4f1f8;
-  padding: 0px;
-  display: none;
+  position: absolute;
 }
 
-.p-nav__item li:hover {
+.p-nav__2nd {
+  height: 54px;
+}
+
+.p-nav__2nd a {
+  background-color: #e9f8fb;
+  width: 250px;
+}
+
+.p-nav__2nd a:hover {
   background-color: #fff;
   color: #2498b3;
-}
-
-.p-nav__item li {
-  height: 0;
-  overflow: hidden;
-  -webkit-transition: .5s;
-  transition: .5s;
 }
 
 .p-mainVisual {

@@ -1,30 +1,34 @@
 @charset 'utf-8';
 
 .p-nav {
-  background-color: $color-C;
-  & > li {
+  display: flex;
+  a {
+    display: inline-block;
+    padding: 0 1rem;
+  }
+  &__1st {
+    height: 71px;
+    line-height: 71px;
+    position: relative;
+    &:nth-of-type(4) li a, &:nth-of-type(5) li a, &:nth-of-type(6) li a {
+      width: 150px;
+    }
     &:hover {
       background-color: $color-B;
-    &:hover .p-nav__item {
-      display: block;
     }
-    }
-    
   }
   &__item {
-    background-color: $color-B;
-    padding: 0px;
-    display: none;
-    & li:hover {
+    position: absolute;
+  }
+  &__2nd {
+    height: 54px;
+    a {
       background-color: $color-C;
-      color: $color-A;
-    }
-    li {
-      height: 0;
-      overflow: hidden;
-      transition: .5s;
-      
+      width: 250px;
+      &:hover {
+        background-color: $color-E;
+        color: $color-A;
+      }
     }
   }
-
 }
