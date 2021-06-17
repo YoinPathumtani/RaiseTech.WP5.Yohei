@@ -22,7 +22,11 @@
     </button>
     <nav class="l-header__nav">
       <ul class="p-nav">
+<<<<<<< HEAD
         <li class="p-nav__1st"><a href="#">はじめての方へ</a>
+=======
+        <li><a href="">はじめての方へ</a>
+>>>>>>> origin/master
           <ul class="p-nav__item">
             <li class="p-nav__2nd"><a href="#">マンガでわかるRaiseTech</a></li>
             <li class="p-nav__2nd"><a href="#">サポート体制</a></li>
@@ -93,12 +97,21 @@
   <div class="p-mainVisual-black"></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
+<<<<<<< HEAD
     $('.p-nav__item').hide();
     $('.p-nav__1st').hover(function() {
       $('.p-nav__item', this).slideDown(100);
     }, function() {
       $('.p-nav__item', this).slideUp(100);
     });
+=======
+    jQuery( function( $ ) {
+      $( ".is-hamburger" ).on( "click", function() {
+      $( this ).toggleClass( "is-open" );
+      $( ".p-gmenu" ).toggleClass( "is-open" );
+      $( "body" ).toggleClass( "is-open" );
+} );
+>>>>>>> origin/master
   </script>
 </body>
 
