@@ -158,29 +158,6 @@ strong {
   }
 }
 
-<<<<<<< HEAD
-=======
-#header .l-header__nav {
-  line-height: 71px;
-  height: 71px;
-}
-
-@media screen and (max-width: 1200px) {
-  #header .l-header__nav {
-    display: none;
-  }
-}
-
-#header .l-header__nav > li > ul li {
-  height: 54px;
-}
-
-#header .l-header__nav a {
-  display: block;
-  padding: 0 16px;
-}
-
->>>>>>> origin/master
 /* ヘッダーのスタイルを定義 */
 /* 
 再利用できるパターンとして、小さな単位のモジュールを定義。
@@ -372,20 +349,9 @@ body.is-open {
 }
 
 .p-nav {
-<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-=======
-  background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.p-nav > li {
-  position: relative;
->>>>>>> origin/master
 }
 
 .p-nav a {
@@ -399,20 +365,14 @@ body.is-open {
   position: relative;
 }
 
-<<<<<<< HEAD
 .p-nav__1st:nth-of-type(4) li a, .p-nav__1st:nth-of-type(5) li a, .p-nav__1st:nth-of-type(6) li a {
   width: 150px;
 }
 
 .p-nav__1st:hover {
-=======
-.p-nav__item {
-  position: absolute;
->>>>>>> origin/master
   background-color: #d4f1f8;
 }
 
-<<<<<<< HEAD
 .p-nav__item {
   position: absolute;
 }
@@ -429,38 +389,6 @@ body.is-open {
 .p-nav__2nd a:hover {
   background-color: #fff;
   color: #2498b3;
-=======
-.p-nav__item a {
-  color: rgba(18, 18, 18, 0.7);
-}
-
-.p-nav__item li:hover {
-  background-color: #e9f8fb;
-}
-
-.p-nav__item li:hover a {
-  color: #2498b3;
-}
-
-.p-nav__item li {
-  height: 0;
-  overflow: hidden;
-  -webkit-transition: .5s;
-  transition: .5s;
-  width: 275px;
-}
-
-.p-nav > li:nth-of-type(4) .p-nav__item li {
-  width: 215px;
-}
-
-.p-nav > li:nth-of-type(5) .p-nav__item li {
-  width: 215px;
-}
-
-.p-nav > li:nth-of-type(6) .p-nav__item li {
-  width: 215px;
->>>>>>> origin/master
 }
 
 .p-mainVisual {

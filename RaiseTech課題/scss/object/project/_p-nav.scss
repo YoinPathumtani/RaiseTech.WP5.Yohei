@@ -1,7 +1,6 @@
 @charset 'utf-8';
 
 .p-nav {
-<<<<<<< HEAD
   display: flex;
   a {
     display: inline-block;
@@ -14,19 +13,12 @@
     &:nth-of-type(4) li a, &:nth-of-type(5) li a, &:nth-of-type(6) li a {
       width: 150px;
     }
-=======
-  background-color: $color-E;
-  display: flex;
-  & > li {
-    position: relative;
->>>>>>> origin/master
     &:hover {
       background-color: $color-B;
     }
   }
   &__item {
     position: absolute;
-<<<<<<< HEAD
   }
   &__2nd {
     height: 54px;
@@ -38,34 +30,5 @@
         color: $color-A;
       }
     }
-=======
-    background-color: $color-B;
-    padding: 0px;
-    display: none;
-    a {
-      color: $color-D;
-    }
-    & li:hover {
-      background-color: $color-C;
-      a {
-        color: $color-A;
-      }
-    }
-    li {
-      height: 0;
-      overflow: hidden;
-      transition: .5s;
-      width: 275px;
-    } 
-  }
-  & > li:nth-of-type(4) .p-nav__item li {
-    width: 215px;
-  }
-  & > li:nth-of-type(5) .p-nav__item li {
-    width: 215px;
-  }
-  & > li:nth-of-type(6) .p-nav__item li {
-    width: 215px;
->>>>>>> origin/master
   }
 }
