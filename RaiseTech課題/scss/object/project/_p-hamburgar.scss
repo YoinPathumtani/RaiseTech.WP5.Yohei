@@ -1,0 +1,62 @@
+@charset 'utf-8';
+$btnWidth: 23px;
+$btnHeight: 1px;
+$humburgerWidth: 40px;
+$humburgerHeight: 40px;
+
+.p-hamburger {
+  display: none;
+  width: $humburgerWidth;
+  height: $humburgerHeight;
+  background-color: $color-bg;
+  border: none;
+  position: relative;
+  @include mq(pc) {
+    display: block;
+  }
+  &::before,
+  &::after {
+    content: "";
+    width: $btnWidth;
+    height: $btnHeight;
+    background: $color-link;
+    position: absolute;
+    left: calc(50% - (#{$btnWidth} / 2));
+    display: block;
+    transition: transform 0.2s;
+  }
+  &::before {
+    top: calc(#{$humburgerHeight} / 4);
+  }
+  &::after {
+    bottom: calc(#{$humburgerHeight} / 4);
+  }
+  > span {
+    width: $btnWidth;
+    height: $btnHeight;
+    font-size: 0;
+    background-color: $color-link;
+    background-size: auto $btnHeight;
+    position: absolute;
+    left: calc(50% - (#{$btnWidth} / 2));
+    top: calc(50% - (#{$btnHeight} / 2));
+    transition: transform 1s;
+  }
+  &.is-open {
+    &::before {
+      transform: rotate(45deg);
+      top: calc(#{$humburgerHeight} / 2);
+    }
+    &::after {
+      transform: rotate(-45deg);
+      top: calc(#{$humburgerHeight} / 2);
+    }
+    > span {
+      background: none;
+    }
+  }
+}
+
+body.is-open {
+  position: fixed;
+}

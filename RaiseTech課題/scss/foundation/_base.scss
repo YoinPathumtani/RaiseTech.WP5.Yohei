@@ -4,24 +4,21 @@
 ※基本的にタグ自体にスタイルを定義すること。
 ※クラスなしの状態でも最低限の表示になることを心がける
 */
-html {
-  font-size: 100%;
-}
 body {
   font-family: "Noto Sans JP",MyYuGothicM,YuGothic,-apple-system,BlinkMacSystemFont,"Hiragino kaku Gothic ProN",Meiryo,Verdana,arial,helvetica,sans-serif;
-  vertical-align: middle;
-  color: $color;
-  font-weight: 900;
 }
 a {
+  display: block;
   text-decoration: none;
-  color: $color;
+  color: $color-font;
 }
-ul, li {
-  margin: 0;
+img {
+  width: 100%;
+}
+ul {
   padding: 0;
-  list-style: none;
+  margin: 0;
 }
-strong {
-  font-size: 1.2em;
+li {
+  list-style: none;
 }

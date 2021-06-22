@@ -1,9 +1,12 @@
 @charset 'utf-8';
 
-$color :#121212;
-$color-A:#2498b3;
-$color-B:#d4f1f8;
-$color-C:#e9f8fb;
-$color-D:rgba(18, 18, 18, .7);
-$color-E:#fff;
+$color-font: #121212;
+$color-font-s: #121212ec;
+$color-sky: #e9f8fb;
+$color-link: #2498b3;
+$color-blue: rgb(212, 241,248);
+$color-bg: #fff;
 
+.pp {
+  background-color: red;
+}

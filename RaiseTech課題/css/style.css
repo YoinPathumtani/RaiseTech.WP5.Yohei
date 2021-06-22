@@ -78,43 +78,40 @@ select {
   }
 }
 
+.pp {
+  background-color: red;
+}
+
 /* 
 サイトを構成する上で、デザインの基本の下地、土台となるスタイルを定義
 ※基本的にタグ自体にスタイルを定義すること。
 ※クラスなしの状態でも最低限の表示になることを心がける
 */
-html {
-  font-size: 100%;
-}
-
 body {
   font-family: "Noto Sans JP",MyYuGothicM,YuGothic,-apple-system,BlinkMacSystemFont,"Hiragino kaku Gothic ProN",Meiryo,Verdana,arial,helvetica,sans-serif;
-  vertical-align: middle;
-  color: #121212;
-  font-weight: 900;
 }
 
 a {
+  display: block;
   text-decoration: none;
   color: #121212;
 }
 
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+img {
+  width: 100%;
 }
 
-strong {
-  font-size: 1.2em;
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
 }
 
 /* メディアクエリなど */
 /* サイトのメインエリア内のコンテンツ幅などの指定 */
-.l-container {
-  width: 900px;
-}
-
 /* 
 メインのコンテンツエリアの共通スタイルを定義
 ※ヘッダーのfixed分の相殺や余白など
@@ -122,40 +119,38 @@ strong {
 */
 /* フッターエリアのスタイルを定義 */
 /* ヘッダーのスタイルを定義 */
-#header {
+.l-header {
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 70px;
 }
 
 @media screen and (max-width: 1200px) {
-  #header {
+  .l-header {
     height: 49px;
   }
 }
 
-#header .l-header__logo {
+.l-header h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin-top: 16px;
+  margin-left: 19px;
 }
 
-#header .l-header__logo > p {
-  font-size: .8rem;
-  font-weight: bold;
-}
-
-@media screen and (max-width: 1280px) {
-  #header .l-header__logo > p {
-    display: none;
+@media screen and (max-width: 1200px) {
+  .l-header h1 {
+    margin: 10px;
   }
+}
+
+.l-header h1 > a {
+  display: block;
 }
 
 /* ヘッダーのスタイルを定義 */
@@ -163,101 +158,380 @@ strong {
 再利用できるパターンとして、小さな単位のモジュールを定義。
 ※marginなど余白は定義しない。あくまでパーツとして扱う
 */
-.c-button {
-  color: #e9f8fb;
+.c-btn {
   background-color: #2498b3;
+  color: #fff;
+  display: block;
 }
 
-.c-button-register {
-  border-radius: 3px;
-  width: 294px;
-  height: 72px;
-  line-height: 72px;
-  color: #e9f8fb;
-  background-color: #2498b3;
-  font-size: 1rem;
-  font-weight: bold;
-  display: inline-block;
+.c-btn-logo {
+  display: block;
+  width: 157px;
 }
 
-@media screen and (max-width: 767px) {
-  .c-button-register {
-    width: 231px;
-    height: 45px;
-    font-size: .9rem;
-    line-height: 45px;
+@media screen and (max-width: 1200px) {
+  .c-btn-logo {
+    width: 144px;
   }
 }
 
-.c-button-logo {
-  width: 160px;
-  margin: 20px;
+.c-btn-logo-sub {
+  font-size: .8rem;
+  font-weight: 900;
 }
 
-/* ハンバーガー */
-.p-hamburger {
-  width: 45px;
-  height: 45px;
-  background-color: #fff;
-  position: relative;
-  display: none;
+@media screen and (max-width: 1280px) {
+  .c-btn-logo-sub {
+    display: none;
+  }
+}
+
+.c-btn-logo-sub span {
+  font-size: 1.2em;
+}
+
+.c-btn-logo-mv-inr {
+  display: block;
+  width: 281px;
+}
+
+@media screen and (max-width: 767px) {
+  .c-btn-logo-mv-inr {
+    display: none;
+  }
+}
+
+.c-btn-mv-inr {
+  height: 60px;
+}
+
+.c-btn-manga {
+  cursor: pointer;
+  width: 291px;
   border: none;
+  height: 66px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .c-btn-manga {
+    width: 230px;
+    height: 44px;
+    font-size: .95rem;
+  }
+}
+
+/* 再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う */
+/* 再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う */
+.p-box-mv-inr {
+  width: 415px;
+  height: 328px;
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: .96rem;
+  font-weight: 900;
+  line-height: 1.7rem;
+  position: absolute;
+  top: 80px;
+  left: calc(50% - (415px / 2));
+  padding: 40px 40px 27px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box-mv-inr {
+    position: absolute;
+    top: 167px;
+    left: 0;
+    border-radius: 0;
+    width: 100%;
+    height: 154px;
+  }
+}
+
+.p-box-mv-inr p {
+  margin: 20px 0 34px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box-mv-inr p {
+    margin-top: -46px;
+    margin-bottom: 0%;
+    font-size: .8rem;
+    line-height: 1.3rem;
+    padding: 22px 0 14px;
+  }
+}
+
+.p-box-mv-point {
+  max-width: 972px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  top: -200px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box-mv-point {
+    top: 220px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+}
+
+.p-box-mv-point__item {
+  margin: 0 auto;
+  text-align: center;
+  width: 227px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box-mv-point__item {
+    width: 90%;
+  }
+}
+
+.p-box-mv-point__item h3 {
+  font-size: 1.7rem;
+  margin: 16px 0 19px;
+}
+
+.p-box-mv-point__item p, .p-box-mv-point__item h3 {
+  color: #fff;
+}
+
+.p-box-mv-point__item p {
+  text-align: left;
+  width: 100%;
+  font-size: .9rem;
+  line-height: 1.6rem;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box-mv-point__item p {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+.p-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    top: 49px;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.p-nav.is-open {
+  z-index: 1;
+  display: block;
+}
+
+.p-nav > li {
+  height: 71px;
+  line-height: 71px;
+  position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav > li {
+    height: 47px;
+    line-height: 47px;
+    background-color: #fff;
+  }
+  .p-nav > li:hover {
+    background-color: #e9f8fb;
+  }
+}
+
+.p-nav > li .p-nav-main {
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.p-nav > li .p-nav-main:hover {
+  background-color: #d4f1f8;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav > li:last-of-type {
+    display: none;
+  }
+}
+
+.p-nav > li:last-of-type a {
+  padding: 0 1rem;
+}
+
+.p-nav__sub {
+  position: absolute;
+  left: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__sub {
+    position: static;
+  }
+}
+
+.p-nav__sub li {
+  background-color: #e9f8fb;
+  width: 250px;
+  height: 45px;
+  line-height: 45px;
+}
+
+.p-nav__sub li a {
+  padding: 0 1rem;
+  color: #121212ec;
+}
+
+.p-nav__sub li a:hover {
+  color: #2498b3;
+  background-color: #fff;
+}
+
+.p-nav > li:nth-of-type(4) li, .p-nav > li:nth-of-type(5) li, .p-nav > li:nth-of-type(6) li {
+  width: 150px;
+}
+
+.p-mainVisual {
+  position: relative;
+  z-index: -1;
+  height: 650px;
+  background-image: url("/img/bg-hero1.png"), url("/img/bg-hero2.png"), url("/img/bg-hero3.png");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: auto, auto, cover;
+  background-position: center, center, top;
+  background-attachment: scroll, scroll, fixed;
+}
+
+.p-mainVisual-black {
+  background-color: black;
+  height: calc(100vh - 70px - 650px);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .p-mainVisual-black {
+    height: 150vh;
+    z-index: -2;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-mainVisual {
+    height: 167px;
+    background-size: 110%, 110%, cover;
+    background-position: center -30px, center -30px, center -30px;
+  }
+}
+
+.p-hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border: none;
+  position: relative;
 }
 
 @media screen and (max-width: 1200px) {
   .p-hamburger {
     display: block;
-    float: right;
   }
 }
 
 .p-hamburger::before, .p-hamburger::after {
   content: "";
-  width: 24px;
-  height: 2px;
-  background-color: #2498b3;
+  width: 23px;
+  height: 1px;
+  background: #2498b3;
   position: absolute;
-  left: calc(50% - ( 24px / 2));
+  left: calc(50% - (23px / 2));
   display: block;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .p-hamburger::before {
-  top: 12px;
+  top: calc(40px / 4);
 }
 
 .p-hamburger::after {
-  top: 32px;
+  bottom: calc(40px / 4);
 }
 
 .p-hamburger > span {
-  width: 24px;
-  height: 2px;
+  width: 23px;
+  height: 1px;
   font-size: 0;
   background-color: #2498b3;
-  background-size: auto 2px;
+  background-size: auto 1px;
   position: absolute;
-  left: calc(50% - ( 24px / 2));
-  top: 50%;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
+  left: calc(50% - (23px / 2));
+  top: calc(50% - (1px / 2));
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
 }
 
 .p-hamburger.is-open::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  top: 21px;
+  top: calc(40px / 2);
 }
 
 .p-hamburger.is-open::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: 21px;
+  top: calc(40px / 2);
 }
 
 .p-hamburger.is-open > span {
@@ -268,230 +542,26 @@ body.is-open {
   position: fixed;
 }
 
-/* 再利用できるパターンとして、小さな単位のモジュールを定義。
-※marginなど余白は定義しない。あくまでパーツとして扱う */
-/* 再利用できるパターンとして、小さな単位のモジュールを定義。
-※marginなど余白は定義しない。あくまでパーツとして扱う */
-.p-box {
-  margin-top: 42px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
+.u-margin-l1rem {
+  margin-left: 1rem;
 }
 
-@media screen and (max-width: 767px) {
-  .p-box {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
+.u-margin-t4 {
+  margin-top: 4px;
 }
 
-.p-box-mv {
-  max-width: 330px;
-  width: 100%;
-}
-
-@media screen and (max-width: 767px) {
-  .p-box-mv {
-    max-width: 100%;
-  }
-}
-
-.p-box-mv__icon {
-  width: 230px;
-  height: 230px;
-  background-color: #e9f8fb;
-  border: 6px solid #121212;
+.u-utility-circle {
+  width: 227px;
+  height: 227px;
   border-radius: 50%;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.p-box-mv h2 {
-  font-size: 1.5rem;
-  padding: .9rem;
-  color: #e9f8fb;
-}
-
-.p-box-mv p {
-  max-width: 216px;
-  width: 100%;
-  font-size: .9rem;
-  line-height: 1.5rem;
-  margin: 0 auto;
-  text-align: left;
-  color: #e9f8fb;
-}
-
-@media screen and (max-width: 767px) {
-  .p-box-mv p {
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 50px;
-  }
-}
-
-.p-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.p-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-}
-
-.p-nav__1st {
-  height: 71px;
-  line-height: 71px;
-  position: relative;
-}
-
-.p-nav__1st:nth-of-type(4) li a, .p-nav__1st:nth-of-type(5) li a, .p-nav__1st:nth-of-type(6) li a {
-  width: 150px;
-}
-
-.p-nav__1st:hover {
-  background-color: #d4f1f8;
-}
-
-.p-nav__item {
-  position: absolute;
-}
-
-.p-nav__2nd {
-  height: 54px;
-}
-
-.p-nav__2nd a {
-  background-color: #e9f8fb;
-  width: 250px;
-}
-
-.p-nav__2nd a:hover {
+  border: 7px solid #121212;
   background-color: #fff;
-  color: #2498b3;
-}
-
-.p-mainVisual {
-  height: 650px;
-  background-image: url("../../../img/bg-hero1.png"), url("../../../img/bg-hero2.png"), url("../../../img/bg-hero3.png");
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center, center, top;
-  background-size: auto, auto, cover;
-  background-attachment: scroll, scroll, fixed;
   text-align: center;
-  padding-top: 78px;
-}
-
-@media screen and (max-width: 767px) {
-  .p-mainVisual {
-    background-size: cover;
-    background-position: center top;
-    width: 100%;
-    height: 168px;
-    padding-top: 168px;
-  }
-}
-
-.p-mainVisual__inr {
-  width: 414px;
-  height: 327px;
-  border-radius: 10px;
-  background-color: white;
   margin: 0 auto;
-  padding: 50px 30px;
-  text-align: center;
 }
 
-@media screen and (max-width: 767px) {
-  .p-mainVisual__inr {
-    width: 100%;
-    border-radius: 0;
-    padding: 0;
-    height: 168px;
-  }
-}
-
-.p-mainVisual__inr img {
-  margin: 0 auto;
-  width: 280px;
-}
-
-@media screen and (max-width: 767px) {
-  .p-mainVisual__inr img {
-    display: none;
-  }
-}
-
-.p-mainVisual__inr p {
-  line-height: 1.7rem;
-  font-size: 1rem;
-  padding: 20px 0;
-}
-
-@media screen and (max-width: 767px) {
-  .p-mainVisual__inr p {
-    padding: 15px 0 10px;
-    font-size: .85rem;
-  }
-}
-
-.p-mainVisual-black {
-  background-color: black;
-  height: 200px;
-}
-
-@media screen and (max-width: 767px) {
-  .p-mainVisual-black {
-    margin-top: 168px;
-    height: 1163px;
-  }
-}
-
-.u-colorA {
-  background-color: #2BB7DA;
-}
-
-.u-colorB {
-  background-color: #2498b3;
-}
-
-.u-margin-t70 {
-  margin-top: 70px;
-}
-
-.u-padding-s {
-  padding: 0 14px;
-}
-
-.u-padding-btn {
-  padding: 22px 38px;
-}
-
-.u-padding-register {
-  padding: 0 32px 0 16px;
-}
-
-.u-border-radius {
-  border-radius: 5px;
+.u-utility-circle .fas {
+  line-height: 227px;
+  height: 227px;
 }
 /*# sourceMappingURL=style.css.map */

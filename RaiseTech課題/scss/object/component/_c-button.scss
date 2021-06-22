@@ -20,7 +20,7 @@
     @include mq(sp) {
       width: 231px;
       height: 45px;
-      font-size: .9rem;
+      font-size: 0.9rem;
       line-height: 45px;
     }
   }
@@ -29,6 +29,10 @@
 .c-button-logo {
   width: 160px;
   margin: 20px;
+  @include mq(pc) {
+    width: 143px;
+    margin-left: 11px;
+  }
 }
 
 /* ハンバーガー */
@@ -44,17 +48,17 @@ $btnHeight: 2px;
   border: none;
   @include mq(pc) {
     display: block;
-    float: right;
   }
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
     width: $btnWidth;
     height: $btnHeight;
     background-color: $color-A;
     position: absolute;
-    left: calc(50% - ( #{$btnWidth} / 2));
+    left: calc(50% - (#{$btnWidth} / 2));
     display: block;
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
   &::before {
     top: 12px;
@@ -69,9 +73,9 @@ $btnHeight: 2px;
     background-color: $color-A;
     background-size: auto $btnHeight;
     position: absolute;
-    left: calc(50% - ( #{$btnWidth} / 2));
+    left: calc(50% - (#{$btnWidth} / 2));
     top: 50%;
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
   &.is-open {
     &::before {
@@ -83,7 +87,7 @@ $btnHeight: 2px;
       top: 21px;
     }
     > span {
-      background: none;
+      background: 0;
     }
   }
 }
