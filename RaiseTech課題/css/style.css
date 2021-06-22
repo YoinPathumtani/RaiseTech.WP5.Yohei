@@ -348,11 +348,14 @@ li {
 
 @media screen and (max-width: 1200px) {
   .p-nav {
+    display: none;
+    /* ハンバーガーメニュー押す前の非表示 */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     position: absolute;
+    /* 右揃えにする為 */
     top: 49px;
     left: 0;
     width: 100%;
@@ -360,6 +363,7 @@ li {
 }
 
 .p-nav.is-open {
+  /* ハンバーガーメニュー押した際の表示 */
   z-index: 1;
   display: block;
 }
@@ -375,6 +379,7 @@ li {
     height: 47px;
     line-height: 47px;
     background-color: #fff;
+    position: static;
   }
   .p-nav > li:hover {
     background-color: #e9f8fb;

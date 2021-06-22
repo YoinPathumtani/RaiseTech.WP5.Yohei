@@ -6,13 +6,14 @@
   font-size: 1rem;
   font-weight: 900;
   @include mq(pc) {
+    display: none; /* ハンバーガーメニュー押す前の非表示 */
     flex-direction: column;
-    position: absolute;
+    position: absolute;/* 右揃えにする為 */
     top: 49px;
     left: 0;
     width: 100%;
   }
-  &.is-open {
+  &.is-open {/* ハンバーガーメニュー押した際の表示 */
     z-index: 1;
     display: block;
   }
@@ -24,6 +25,7 @@
       height: 47px;
       line-height: 47px;
       background-color: $color-bg;
+      position: static;
       &:hover {
         background-color: $color-sky;
       }
@@ -58,7 +60,6 @@
       a {
         padding: 0 1rem;
         color: $color-font-s;
-
         &:hover {
         color: $color-link;
         background-color: $color-bg;
