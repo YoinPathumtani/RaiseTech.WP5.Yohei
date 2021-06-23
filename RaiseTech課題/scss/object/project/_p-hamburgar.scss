@@ -10,6 +10,7 @@ $humburgerHeight: 49px;
   height: $humburgerHeight;
   background-color: $color-bg;
   border: none;
+  cursor: pointer;
   position: relative;
   @include mq(pc) {
     display: block;
