@@ -22,7 +22,7 @@
       <button class="p-hamburger is-hamburger"><span>menuボタン</span></button><!-- ハンバーガーメニュー -->
       <ul class="p-nav">
         <li>
-          <p id="is-plus" class="p-nav-main c-deco-plus">はじめての方へ</p>
+          <p class="p-nav-main is-plus">はじめての方へ</p>
           <ul class="p-nav__sub">
             <li><a href="#">マンガでわかるRaiseTech</a></li>
             <li><a href="#">サポート体制</a></li>
@@ -32,7 +32,7 @@
           </ul>
         </li>
         <li>
-          <p id="is-plus" class="p-nav-main">コース案内</p>
+          <p class="p-nav-main is-plus">コース案内</p>
           <ul class="p-nav__sub">
             <li><a href="#">マーケティングコース</a></li>
             <li><a href="#">デザインコース</a></li>
@@ -46,21 +46,21 @@
         <li>
           <p class="p-nav-main"><a href="#">講師紹介</a></p>
         <li>
-          <p id="is-plus" class="p-nav-main">卒業生の声・実績</p>
+          <p class="p-nav-main is-plus">卒業生の声・実績</p>
           <ul class="p-nav__sub">
             <li><a href="#">卒業生の声</a></li>
             <li><a href="#">転職・案件実績</a></li>
           </ul>
         </li>
         <li>
-          <p id="is-plus" class="p-nav-main">メディア</p>
+          <p class="p-nav-main is-plus">メディア</p>
           <ul class="p-nav__sub">
             <li><a href="#">動画一覧</a></li>
             <li><a href="#">掲載記事一覧</a></li>
           </ul>
         </li>
         <li>
-          <p id="is-plus" class="p-nav-main">サポート</p>
+          <p class="p-nav-main is-plus">サポート</p>
           <ul class="p-nav__sub">
             <li><a href="#">よくあるご質問</a></li>
             <li><a href="#">お問い合わせ</a></li>
@@ -116,6 +116,9 @@
         $(".p-nav").toggleClass("is-open");
       });
       /* デコレーションPlusクラスつけ */
+      if (window.matchMedia( '(max-width: 1200px)' ).matches) {
+        $('.is-plus').addClass('c-deco-plus');
+      }
     });
   </script>
 </body>
