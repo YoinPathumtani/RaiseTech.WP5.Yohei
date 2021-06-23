@@ -22,7 +22,7 @@
       <button class="p-hamburger is-hamburger"><span>menuボタン</span></button><!-- ハンバーガーメニュー -->
       <ul class="p-nav">
         <li>
-          <p id="is-plus" class="p-nav-main">はじめての方へ</p>
+          <p id="is-plus" class="p-nav-main c-deco-plus">はじめての方へ</p>
           <ul class="p-nav__sub">
             <li><a href="#">マンガでわかるRaiseTech</a></li>
             <li><a href="#">サポート体制</a></li>
@@ -115,17 +115,7 @@
         $(this).toggleClass("is-open");
         $(".p-nav").toggleClass("is-open");
       });
-      /* デコレーションPlus挙動 */
-      if (window.matchMedia(("max-width: 1200px")).matches) {
-        $(function(){
-          $("#is-plus").addClass("c-deco-plus");
-        });
-      } 
-      else {
-        $(function(){
-        $("#is-plus").removeClass("c-deco-plus");
-        });
-      };
+      /* デコレーションPlusクラスつけ */
     });
   </script>
 </body>
