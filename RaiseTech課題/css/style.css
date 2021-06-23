@@ -78,10 +78,6 @@ select {
   }
 }
 
-.pp {
-  background-color: red;
-}
-
 /* 
 サイトを構成する上で、デザインの基本の下地、土台となるスタイルを定義
 ※基本的にタグ自体にスタイルを定義すること。
@@ -110,6 +106,10 @@ li {
   list-style: none;
 }
 
+button {
+  padding: 0;
+}
+
 /* メディアクエリなど */
 /* サイトのメインエリア内のコンテンツ幅などの指定 */
 /* 
@@ -120,7 +120,7 @@ li {
 /* フッターエリアのスタイルを定義 */
 /* ヘッダーのスタイルを定義 */
 .l-header {
-  height: 70px;
+  height: 70.2px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,6 +162,8 @@ li {
   background-color: #2498b3;
   color: #fff;
   display: block;
+  height: 71px;
+  line-height: 71px;
 }
 
 .c-btn-logo {
@@ -187,7 +189,7 @@ li {
 }
 
 .c-btn-logo-sub span {
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
 .c-btn-logo-mv-inr {
@@ -220,6 +222,37 @@ li {
     height: 44px;
     font-size: .95rem;
   }
+}
+
+/* 
+再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う
+*/
+.c-deco-plus {
+  position: relative;
+}
+
+.c-deco-plus::before, .c-deco-plus::after {
+  content: "";
+  float: right;
+}
+
+.c-deco-plus::before {
+  width: 23px;
+  height: 2px;
+  background-color: #121212;
+  position: absolute;
+  right: 10px;
+  top: calc(40px / 2);
+}
+
+.c-deco-plus::after {
+  width: 2px;
+  height: 23px;
+  background-color: #121212;
+  position: absolute;
+  right: calc(40px / 2);
+  top: 10px;
 }
 
 /* 再利用できるパターンとして、小さな単位のモジュールを定義。
@@ -362,37 +395,38 @@ li {
   }
 }
 
-.p-nav.is-open {
-  /* ハンバーガーメニュー押した際の表示 */
-  z-index: 1;
-  display: block;
-}
-
 .p-nav > li {
-  height: 71px;
-  line-height: 71px;
   position: relative;
 }
 
 @media screen and (max-width: 1200px) {
   .p-nav > li {
-    height: 47px;
-    line-height: 47px;
     background-color: #fff;
-    position: static;
-  }
-  .p-nav > li:hover {
-    background-color: #e9f8fb;
   }
 }
 
 .p-nav > li .p-nav-main {
   cursor: pointer;
   padding: 0 1rem;
+  height: 71px;
+  line-height: 71px;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav > li .p-nav-main {
+    height: 47px;
+    line-height: 47px;
+  }
 }
 
 .p-nav > li .p-nav-main:hover {
   background-color: #d4f1f8;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav > li .p-nav-main:hover {
+    background-color: #f3fafb;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -423,9 +457,24 @@ li {
   line-height: 45px;
 }
 
+@media screen and (max-width: 1200px) {
+  .p-nav__sub li {
+    width: 100vw;
+    height: 59px;
+    background-color: #fff;
+  }
+}
+
 .p-nav__sub li a {
   padding: 0 1rem;
-  color: #121212ec;
+  color: #121212b7;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__sub li a {
+    padding-left: 32px;
+    line-height: 49px;
+  }
 }
 
 .p-nav__sub li a:hover {
@@ -433,8 +482,32 @@ li {
   background-color: #fff;
 }
 
+@media screen and (max-width: 1200px) {
+  .p-nav__sub li a:hover {
+    background-color: #f3fafb;
+    color: #121212;
+  }
+}
+
 .p-nav > li:nth-of-type(4) li, .p-nav > li:nth-of-type(5) li, .p-nav > li:nth-of-type(6) li {
   width: 150px;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav > li:nth-of-type(4) li, .p-nav > li:nth-of-type(5) li, .p-nav > li:nth-of-type(6) li {
+    width: 100vw;
+  }
+}
+
+.p-nav.is-open {
+  /* ハンバーガーメニュー押した際の表示 */
+  z-index: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav.is-open {
+    display: block;
+  }
 }
 
 .p-mainVisual {
@@ -477,8 +550,8 @@ li {
 
 .p-hamburger {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 49px;
+  height: 49px;
   background-color: #fff;
   border: none;
   position: relative;
@@ -505,11 +578,11 @@ li {
 }
 
 .p-hamburger::before {
-  top: calc(40px / 4);
+  top: calc(49px / 4);
 }
 
 .p-hamburger::after {
-  bottom: calc(40px / 4);
+  bottom: calc(49px / 4);
 }
 
 .p-hamburger > span {
@@ -527,16 +600,22 @@ li {
   transition: transform 1s, -webkit-transform 1s;
 }
 
+.p-hamburger.is-open {
+  background-color: #2498b3;
+}
+
 .p-hamburger.is-open::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  top: calc(40px / 2);
+  top: calc(49px / 2);
+  background-color: #fff;
 }
 
 .p-hamburger.is-open::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: calc(40px / 2);
+  top: calc(49px / 2);
+  background-color: #fff;
 }
 
 .p-hamburger.is-open > span {

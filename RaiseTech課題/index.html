@@ -19,10 +19,10 @@
       <p class="c-btn-logo-sub u-margin-l1rem"><a href="index.html">最速で<span>「稼げる」</span>プロになる<br>エンジニアリングスクール</a></p>
     </h1>
     <nav>
-      <button class="p-hamburger is-hamburger u-margin-t4"><span>menuボタン</span></button><!-- ハンバーガーメニュー -->
+      <button class="p-hamburger is-hamburger"><span>menuボタン</span></button><!-- ハンバーガーメニュー -->
       <ul class="p-nav">
         <li>
-          <p class="p-nav-main">はじめての方へ</p>
+          <p class="p-nav-main is-plus">はじめての方へ</p>
           <ul class="p-nav__sub">
             <li><a href="#">マンガでわかるRaiseTech</a></li>
             <li><a href="#">サポート体制</a></li>
@@ -32,7 +32,7 @@
           </ul>
         </li>
         <li>
-          <p class="p-nav-main">コース案内</p>
+          <p class="p-nav-main is-plus">コース案内</p>
           <ul class="p-nav__sub">
             <li><a href="#">マーケティングコース</a></li>
             <li><a href="#">デザインコース</a></li>
@@ -46,27 +46,27 @@
         <li>
           <p class="p-nav-main"><a href="#">講師紹介</a></p>
         <li>
-          <p class="p-nav-main">卒業生の声・実績</p>
+          <p class="p-nav-main is-plus">卒業生の声・実績</p>
           <ul class="p-nav__sub">
             <li><a href="#">卒業生の声</a></li>
             <li><a href="#">転職・案件実績</a></li>
           </ul>
         </li>
         <li>
-          <p class="p-nav-main">メディア</p>
+          <p class="p-nav-main is-plus">メディア</p>
           <ul class="p-nav__sub">
             <li><a href="#">動画一覧</a></li>
             <li><a href="#">掲載記事一覧</a></li>
           </ul>
         </li>
         <li>
-          <p class="p-nav-main">サポート</p>
+          <p class="p-nav-main is-plus">サポート</p>
           <ul class="p-nav__sub">
             <li><a href="#">よくあるご質問</a></li>
             <li><a href="#">お問い合わせ</a></li>
           </ul>
         </li>
-        <li><a href="#" class="c-btn">受講お申し込み</a></li>
+        <li><a href="#" class="c-btn u-padding-t26">受講お申し込み</a></li>
       </ul><!-- p-nav -->
     </nav>
   </header>
@@ -99,7 +99,6 @@
       </div>
 
     </div>
-
   </div><!-- p-mainVisual-black -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
@@ -107,15 +106,25 @@
       /* ドロップダウンメニュー */
       $(".p-nav__sub").hide();
       $(".p-nav li").hover(function(){
-        $(".p-nav__sub", this).slideDown(400);
+        $(".p-nav__sub", this).slideDown(100);
       }, function() {
-        $(".p-nav__sub", this).slideUp(400);
+        $(".p-nav__sub", this).slideUp(100);
       });
       /* ハンバーガーメニュークラスつけ */
       $(".is-hamburger").on("click", function () {
         $(this).toggleClass("is-open");
         $(".p-nav").toggleClass("is-open");
       });
+      /* デコレーションPlus挙動 */
+      // if (window.matchMedia(("max-width: 1200px")).matches) {
+      //   $(function(){
+      //     $(".is-plus").addClass("c-deco");
+      //   });
+      // } else {
+      //   $(function(){
+      //   $(".is-plus").removeClass("c-deco");
+      //   });
+      // };
     });
   </script>
 </body>

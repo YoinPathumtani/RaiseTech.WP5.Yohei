@@ -1,0 +1,34 @@
+@charset 'utf-8';
+/* 
+再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う
+*/
+$plusWidth: 23px;
+$plusHeight: 2px;
+$plusBoxWidth: 40px;
+$plusBoxHeight: 40px;
+
+.c-deco-plus {
+  position: relative;
+  &::before, &::after {
+    content: "";
+    float: right;
+  }
+  &::before {
+    width: $plusWidth;
+    height: $plusHeight;
+    background-color: $color-font;
+    position: absolute;
+    right: 10px;
+    top: calc(#{$plusBoxHeight} / 2);
+  }
+  &::after {
+    width: $plusHeight;
+    height: $plusWidth;
+    background-color: $color-font;
+    position: absolute;
+    right: calc(#{$plusBoxWidth} / 2);
+    top: 10px;
+  }
+
+}

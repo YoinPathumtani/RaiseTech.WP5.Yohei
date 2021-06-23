@@ -1,8 +1,8 @@
 @charset 'utf-8';
 $btnWidth: 23px;
 $btnHeight: 1px;
-$humburgerWidth: 40px;
-$humburgerHeight: 40px;
+$humburgerWidth: 49px;
+$humburgerHeight: 49px;
 
 .p-hamburger {
   display: none;
@@ -43,13 +43,16 @@ $humburgerHeight: 40px;
     transition: transform 1s;
   }
   &.is-open {
+    background-color: $color-link;
     &::before {
       transform: rotate(45deg);
       top: calc(#{$humburgerHeight} / 2);
+      background-color: $color-bg;
     }
     &::after {
       transform: rotate(-45deg);
       top: calc(#{$humburgerHeight} / 2);
+      background-color: $color-bg;
     }
     > span {
       background: none;

@@ -7,6 +7,8 @@
   background-color: $color-link;
   color: $color-bg;
   display: block;
+  height: 71px;
+  line-height: 71px;
   &-logo {
   display: block;
   width: 157px;
@@ -20,7 +22,7 @@
       display: none;
     }
       span {
-      font-size: 1.2em;
+      font-size: 1.4em;
       }
     }
     &-mv-inr {
