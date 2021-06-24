@@ -160,6 +160,7 @@ button {
 */
 .c-btn {
   background-color: #2498b3;
+  cursor: pointer;
   color: #fff;
   display: block;
   height: 71px;
@@ -208,7 +209,6 @@ button {
 }
 
 .c-btn-manga {
-  cursor: pointer;
   width: 291px;
   border: none;
   height: 66px;

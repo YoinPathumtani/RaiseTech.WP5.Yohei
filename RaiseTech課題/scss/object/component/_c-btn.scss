@@ -5,6 +5,7 @@
 */
 .c-btn {
   background-color: $color-link;
+  cursor: pointer ;
   color: $color-bg;
   display: block;
   height: 71px;
@@ -37,7 +38,6 @@
     height: 60px;
   }
   &-manga {
-    cursor: pointer;
     width: 291px;
     border: none;
     height: 66px;

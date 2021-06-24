@@ -115,11 +115,25 @@
         $(this).toggleClass("is-open");
         $(".p-nav").toggleClass("is-open");
       });
-      /* デコレーションPlusクラスつけ */
-      if (window.matchMedia( '(max-width: 1200px)' ).matches) {
-        $('.is-plus').addClass('c-deco-plus');
-      }
     });
+  </script>
+  <script>
+    const mql = window.matchMedia('(max-width: 1200px)');
+    const handleMediaQuery = function(mql) {
+      if (mql.matches) {
+        let elements = document.getElementsByClassName('is-plus');
+        Array.prototype.forEach.call(elements, function(element) {
+          element.classList.add('c-deco-plus');
+        });
+      } else {
+        let elements = document.getElementsByClassName('is-plus');
+        Array.prototype.forEach.call(elements, function(element) {
+          element.classList.remove('c-deco-plus');
+        });
+      }
+    };
+    mql.addListener(handleMediaQuery);
+    handleMediaQuery(mql);
   </script>
 </body>
 
