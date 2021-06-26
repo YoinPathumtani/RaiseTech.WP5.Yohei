@@ -1,0 +1,23 @@
+@charset 'utf-8';
+/* ヘッダーのスタイルを定義 */
+
+.l-header {
+  height: 70.2px;
+  display: flex;
+  justify-content: space-between;
+  @include mq(pc) {
+    height: 49px;
+  }
+  h1 {
+    display: flex;
+    margin-top: 16px;
+    margin-left: 19px;
+    @include mq(pc) {
+      margin: 10px;
+    }
+    & > a {
+      display: block;
+    }
+  }
+
+}

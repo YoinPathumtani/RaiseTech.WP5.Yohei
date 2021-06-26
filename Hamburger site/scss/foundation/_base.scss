@@ -1,0 +1,27 @@
+@charset 'utf-8';
+/* 
+サイトを構成する上で、デザインの基本の下地、土台となるスタイルを定義
+※基本的にタグ自体にスタイルを定義すること。
+※クラスなしの状態でも最低限の表示になることを心がける
+*/
+body {
+  font-family: "Noto Sans JP",MyYuGothicM,YuGothic,-apple-system,BlinkMacSystemFont,"Hiragino kaku Gothic ProN",Meiryo,Verdana,arial,helvetica,sans-serif;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: $color-font;
+}
+img {
+  width: 100%;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+button {
+  padding: 0;
+}

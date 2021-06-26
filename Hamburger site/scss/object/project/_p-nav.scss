@@ -1,0 +1,92 @@
+@charset 'utf-8';
+
+.p-nav {
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  font-weight: 900;
+  @include mq(pc) {
+    display: none; /* ハンバーガーメニュー押す前の非表示 */
+    flex-direction: column;
+    position: absolute;/* 右揃えにする為 */
+    top: 49px;
+    left: 0;
+    width: 100%;
+  }
+  & > li {
+    position: relative;
+    @include mq(pc) {
+      background-color: $color-bg;
+    }
+    .p-nav-main {
+      cursor: pointer;
+      padding: 0 1rem;
+      height: 71px;
+      line-height: 71px;
+      @include mq(pc) {
+        height: 47px;
+        line-height: 47px;
+      }
+      &:hover {
+        background-color: $color-blue;
+        @include mq(pc) {
+          background-color: $color-hb-sp;
+        }
+      }
+    }
+    &:last-of-type {      
+      @include mq(pc) {
+        display: none;
+      }
+      a {
+        padding: 0 1rem;
+      }
+    }
+  }
+  &__sub {
+    position: absolute;
+    left: 0;
+    @include mq(pc) {
+      position: static;
+    }
+    li {
+      background-color: $color-sky;
+      width: 250px;
+      height: 45px;
+      line-height: 45px;
+      @include mq(pc) {
+        width: 100vw;
+        height: 59px;
+        background-color: $color-bg;
+      }
+      a {
+        padding: 0 1rem;
+        color: $color-font-s;
+        @include mq(pc) {
+          padding-left: 32px;
+          line-height: 49px;
+        }
+        &:hover {
+          color: $color-link;
+          background-color: $color-bg;
+          @include mq(pc) {
+            background-color: $color-hb-sp;
+            color: $color-font;
+          }
+        }
+      }
+    }
+  }
+  & > li:nth-of-type(4) li, & > li:nth-of-type(5) li, & > li:nth-of-type(6) li{
+    width: 150px;
+    @include mq(pc) {
+      width: 100vw;
+    }
+  }
+  &.is-open {/* ハンバーガーメニュー押した際の表示 */
+    z-index: 1;
+    @include mq(pc) {
+      display: block;
+    }
+  }
+}
