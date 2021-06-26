@@ -1,0 +1,572 @@
+@charset "UTF-8";
+/* ブラウザのデフォルトのスタイルをリセットするcssを定義*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 
+サイトを構成する上で、デザインの基本の下地、土台となるスタイルを定義
+※基本的にタグ自体にスタイルを定義すること。
+※クラスなしの状態でも最低限の表示になることを心がける
+*/
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Noto Sans JP",MyYuGothicM,YuGothic,-apple-system,BlinkMacSystemFont,"Hiragino kaku Gothic ProN",Meiryo,Verdana,arial,helvetica,sans-serif;
+  vertical-align: middle;
+  color: #121212;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  color: #121212;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+strong {
+  font-size: 1.2em;
+}
+
+/* メディアクエリなど */
+/* サイトのメインエリア内のコンテンツ幅などの指定 */
+.l-container {
+  width: 900px;
+}
+
+/* 
+メインのコンテンツエリアの共通スタイルを定義
+※ヘッダーのfixed分の相殺や余白など
+※ここでは共通の上下左右の余白などのみの定義
+*/
+/* フッターエリアのスタイルを定義 */
+/* ヘッダーのスタイルを定義 */
+#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 70px;
+}
+
+@media screen and (max-width: 1200px) {
+  #header {
+    height: 49px;
+  }
+}
+
+#header .l-header__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header .l-header__logo > p {
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1280px) {
+  #header .l-header__logo > p {
+    display: none;
+  }
+}
+
+/* ヘッダーのスタイルを定義 */
+/* 
+再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う
+*/
+.c-button {
+  color: #e9f8fb;
+  background-color: #2498b3;
+}
+
+.c-button-register {
+  border-radius: 3px;
+  width: 294px;
+  height: 72px;
+  line-height: 72px;
+  color: #e9f8fb;
+  background-color: #2498b3;
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  .c-button-register {
+    width: 231px;
+    height: 45px;
+    font-size: 0.9rem;
+    line-height: 45px;
+  }
+}
+
+.c-button-logo {
+  width: 160px;
+  margin: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .c-button-logo {
+    width: 143px;
+    margin-left: 11px;
+  }
+}
+
+/* ハンバーガー */
+.p-hamburger {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  position: relative;
+  display: none;
+  border: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-hamburger {
+    display: block;
+  }
+}
+
+.p-hamburger::before, .p-hamburger::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: #2498b3;
+  position: absolute;
+  left: calc(50% - (24px / 2));
+  display: block;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.p-hamburger::before {
+  top: 12px;
+}
+
+.p-hamburger::after {
+  top: 32px;
+}
+
+.p-hamburger > span {
+  width: 24px;
+  height: 2px;
+  font-size: 0;
+  background-color: #2498b3;
+  background-size: auto 2px;
+  position: absolute;
+  left: calc(50% - (24px / 2));
+  top: 50%;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.p-hamburger.is-open::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 21px;
+}
+
+.p-hamburger.is-open::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 21px;
+}
+
+.p-hamburger.is-open > span {
+  background: 0;
+}
+
+body.is-open {
+  position: fixed;
+}
+
+/* 再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う */
+/* 再利用できるパターンとして、小さな単位のモジュールを定義。
+※marginなど余白は定義しない。あくまでパーツとして扱う */
+.p-box {
+  margin-top: 42px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.p-box-mv {
+  max-width: 330px;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box-mv {
+    max-width: 100%;
+  }
+}
+
+.p-box-mv__icon {
+  width: 230px;
+  height: 230px;
+  background-color: #e9f8fb;
+  border: 6px solid #121212;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.p-box-mv h2 {
+  font-size: 1.5rem;
+  padding: .9rem;
+  color: #e9f8fb;
+}
+
+.p-box-mv p {
+  max-width: 216px;
+  width: 100%;
+  font-size: .9rem;
+  line-height: 1.5rem;
+  margin: 0 auto;
+  text-align: left;
+  color: #e9f8fb;
+}
+
+@media screen and (max-width: 767px) {
+  .p-box-mv p {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+
+.p-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    top: 49px;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+  }
+}
+
+.p-nav a {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav a {
+    padding: 0 12px;
+  }
+}
+
+.p-nav__1st {
+  height: 71px;
+  line-height: 71px;
+  position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__1st {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+  }
+}
+
+.p-nav__1st:nth-of-type(4) li a, .p-nav__1st:nth-of-type(5) li a, .p-nav__1st:nth-of-type(6) li a {
+  width: 150px;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__1st:nth-of-type(4) li a, .p-nav__1st:nth-of-type(5) li a, .p-nav__1st:nth-of-type(6) li a {
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.p-nav__1st:hover {
+  background-color: #d4f1f8;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__1st:hover {
+    background-color: #e9f8fb;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__1st:last-of-type {
+    display: none;
+  }
+}
+
+.p-nav__item {
+  position: absolute;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__item {
+    position: static;
+  }
+}
+
+.p-nav__2nd {
+  height: 54px;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__2nd {
+    height: 40px;
+  }
+}
+
+.p-nav__2nd a {
+  background-color: #e9f8fb;
+  width: 250px;
+  color: rgba(18, 18, 18, 0.7);
+}
+
+@media screen and (max-width: 1200px) {
+  .p-nav__2nd a {
+    padding: 0 24px;
+    width: 100%;
+    background-color: saddlebrown;
+  }
+}
+
+.p-nav__2nd a:hover {
+  background-color: #fff;
+  color: #2498b3;
+}
+
+.p-mainVisual {
+  height: 650px;
+  background-image: url("../../../img/bg-hero1.png"), url("../../../img/bg-hero2.png"), url("../../../img/bg-hero3.png");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: center, center, top;
+  background-size: auto, auto, cover;
+  background-attachment: scroll, scroll, fixed;
+  text-align: center;
+  padding-top: 78px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-mainVisual {
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    height: 168px;
+    padding-top: 168px;
+  }
+}
+
+.p-mainVisual__inr {
+  width: 414px;
+  height: 327px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 50px 30px;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .p-mainVisual__inr {
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+    height: 168px;
+  }
+}
+
+.p-mainVisual__inr img {
+  margin: 0 auto;
+  width: 280px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-mainVisual__inr img {
+    display: none;
+  }
+}
+
+.p-mainVisual__inr p {
+  line-height: 1.7rem;
+  font-size: 1rem;
+  padding: 20px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .p-mainVisual__inr p {
+    padding: 15px 0 10px;
+    font-size: .85rem;
+  }
+}
+
+.p-mainVisual-black {
+  background-color: black;
+  height: 200px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-mainVisual-black {
+    margin-top: 168px;
+    height: 1163px;
+  }
+}
+
+.u-colorA {
+  background-color: #2BB7DA;
+}
+
+.u-colorB {
+  background-color: #2498b3;
+}
+
+.u-margin-t70 {
+  margin-top: 70px;
+}
+
+.u-padding-s {
+  padding: 0 14px;
+}
+
+.u-padding-btn {
+  padding: 22px 38px;
+}
+
+.u-padding-register {
+  padding: 0 32px 0 16px;
+}
+
+.u-border-radius {
+  border-radius: 5px;
+}
+/*# sourceMappingURL=style.css.map */
